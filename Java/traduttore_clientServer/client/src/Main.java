@@ -1,0 +1,91 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.InetAddress;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+public class Main {
+  private BufferedReader inp = new BufferedReader(new InputStreamReader(System.in));
+  private Client socket;
+  private String ip = "localhost";
+  private int porta = 7000;
+
+  public static void main(String[] args) throws IOException {
+    Main m = new Main();
+    m.dashboard();
+  }
+
+  public void dashboard() throws IOException {
+    int s;
+    do {
+      System.out.println("\nSelezionare un'opzione\n1. Connetti\n0. Esci");
+      System.out.print("\nSelezione: ");
+      s = Integer.parseInt(inp.readLine());
+
+      switch (s) {
+        case 1 -> connessione();
+        case 0 -> System.exit(0);
+      }
+    }while (s != 0);
+  }
+
+  public void connessione() throws IOException {
+    socket = new Client(ip, porta);
+    try {
+      socket.connessione();
+      esegui();
+    }
+    catch (ConnectException | InterruptedException c) {
+      System.err.println("[Errore di connessione]\n");
+    }
+  }
+
+  public void esegui() throws IOException, InterruptedException {
+    System.out.print("""
+          - Funzionamento del server -
+          \tSe non si inviano dati entro 30 secondi la connessione si annulla
+          \tIl seguente server permette di tradurre tre parole: "uno, due, tre"
+          \tScrivere q per terminare la connessione
+          \tScegliere la lingua con il codice lingua (UK, DE, EL)
+          """);
+
+    String s, t, r;
+    String lcodes = socket.ricevi();
+
+    do {
+      do {
+        System.out.print("\nInserire il codice lingua (UK, DE, EL) oppure (Q) per uscire: ");
+        s = inp.readLine();
+      }while (!lcodes.contains(s) && !s.equals("q"));
+
+      System.out.println("\n\t<---\tInvio del dato: (" + s + ")");
+      socket.invia(s);
+
+      if(s.equals("q"))
+        chiudiConnessione(s);
+
+      System.out.print("\nInserire la parola da tradurre (uno, due, tre): ");
+      t = inp.readLine();
+
+      System.out.println("\n\t<---\tInvio del dato: (" + t + ")");
+      socket.invia(t);
+
+      r = socket.ricevi();
+
+      if(socket.isConnected()) {
+        System.out.println("\t--->\tTraduzione: (" + r + ")");
+      }
+
+    } while(!s.equals("q") && socket.isConnected());
+  }
+
+  public void chiudiConnessione(String s) throws IOException {
+    socket.invia(s); /* Per disconnettere il client dal server invio una stringa
+    che gli permette di interrompere la connessione */
+    socket.closeConnection();
+    dashboard();
+  }
+}

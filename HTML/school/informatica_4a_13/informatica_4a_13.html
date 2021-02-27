@@ -1,0 +1,44 @@
+<!-- Realizzare una pagina web che risponda alle seguenti specifiche:
+1)	La pagina deve mostrare una pulsantiera tipo tabella fatta da 4 righe e 3
+colonne.
+2)	Inizialmente tutti i pulsanti devono essere attivi e non devono presentare
+testo.
+3)	Successivamente, cliccando di volta in volta su un pulsante, questo deve
+ottenere un testo in base alla posizione in cui si trova nella pulsantiera e
+deve essere disabilitato (non più cliccabile)
+4)	Alla fine, quando tutti i pulsanti sono stati cliccati, dovrà essere
+visibile la classica tastiera di un telefono cellulare. -->
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INFORMATICA_4A_12</title>
+    <script src="script.js" charset="utf-8"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="riga1">
+			<input class = "button" id = "b1" type="button" onclick="aggiungitesto(1, this)">
+			<input class = "button" id = "b2" type="button" onclick="aggiungitesto(2, this)">
+			<input class = "button" id = "b3" type="button" onclick="aggiungitesto(3, this)">
+		</div>
+
+		<div class="riga2">
+			<input class = "button" id = "b4" type="button" onclick="aggiungitesto(4, this)">
+			<input class = "button" id = "b5" type="button" onclick="aggiungitesto(5, this)">
+			<input class = "button" id = "b6" type="button" onclick="aggiungitesto(6, this)">
+		</div>
+
+		<div class="riga3">
+			<input class = "button" id = "b7" type="button" onclick="aggiungitesto(7, this)">
+			<input class = "button" id = "b8" type="button" onclick="aggiungitesto(8, this)">
+			<input class = "button" id = "b9" type="button" onclick="aggiungitesto(9, this)">
+		</div>
+
+		<div class="riga4">
+			<input class = "button" id = "b10" type="button" onclick="aggiungitesto('*', this)">
+			<input class = "button" id = "b11" type="button" onclick="aggiungitesto(0, this)">
+			<input class = "button" id = "b12" type="button" onclick="aggiungitesto('#', this)">
+		</div>
+  </body>
+</html>

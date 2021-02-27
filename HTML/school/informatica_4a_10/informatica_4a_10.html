@@ -1,0 +1,21 @@
+<!-- Creare una pagina web contenente un form con un pulsante.
+Fare in modo che cliccando sul pulsante compaia il messaggio "Hai cliccato sul
+pulsante". Fare in modo che quando il mouse è sul pulsante il testo sul pulsante
+sia "Mouse su pulsante"; in caso contrario il testo sul pulsante dovrà essere
+"Mouse fuori dal pulsante". Lavorare utilizzando funzioni Javascript. -->
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INFORMATICA_4A_10</title>
+    <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>INFORMATICA_4A_10</h1>
+    <form name="form" id="form" onsubmit="return false">
+      <button name="button" id="button" onclick="Click()" onmouseover="mouseOver()"
+      onmouseout = "mouseOut()" value="Submit" style="height: 50px; width: 200px"
+      >Pulsante</button>
+    </form>
+  </body>
+</html>

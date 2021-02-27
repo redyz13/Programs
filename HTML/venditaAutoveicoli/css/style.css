@@ -1,0 +1,64 @@
+body {
+    background-image: url('https://lh3.googleusercontent.com/proxy/SyjU1e4CIRBZttQzzENWC0QRCOTI1wmCN-_824DHPXNhCUbnOEdPwChAiCGcmWueqX4G_G2tE1Y6ky1LzkBRwHxVSJNbCPw3in4dx7xBLIasAxSH70bECnPeekuwCDjGnG3h');
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background:#8148be;
+    color: rgb(219, 218, 218);
+    font-size: 30px;
+}
+
+#introduzione {
+    margin-left: 1000px;
+    margin: 10px;
+    display: flex;
+    position: static;
+
+}
+
+#auto {
+    margin: 100px;
+    display: flex;
+    position: static;
+}
+
+
+.card {  
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 20%;
+}
+
+.card2 {
+    margin-left: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+  }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #8148be;
+    color: white;
+    text-align: center;
+  }

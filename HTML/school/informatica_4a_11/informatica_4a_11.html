@@ -1,0 +1,33 @@
+<!-- Realizzare una pagina web che mostri in forma tabellare la tavola
+pitagorica del 10, costruita usando Javascript.
+Modifica la pagina precedentemente costruita in modo che la tavola
+pitagorica non venga mostrata subito all’apertura della pagina, ma solo in
+seguito alla pressione di un tasto -->
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INFORMATICA_4A_11</title>
+    <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>INFORMATICA_4A_11</h1>
+    <p>Premere i pulsanti per gestire la visualizzazione della tabella pitagorica del 10</p>
+    <form name="form" id="form" onsubmit="return false">
+      <button name="button" id="button" onclick="showTable()" value="Submit"
+      style="height: 50px; width: 200px">Mostra Tabella</button>
+      <button name="button" id="button" onclick="hideTable()" value="Submit"
+      style="height: 50px; width: 200px">Nascondi Tabella</button>
+    </form>
+    <br>
+    <table border="3" style="display: none" id="table">
+      <tr>
+        <td>Operazione</td>
+        <td>Risultato</td>
+        <script type="text/javascript">
+          printTable();
+        </script>
+      </tr>
+    </table>
+  </body>
+</html>

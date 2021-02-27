@@ -1,0 +1,31 @@
+<!-- Realizzare tre pagine web che si comportino nel modo che segue:
+1)	La prima pagina svolga la funzione di diagnostica del browser che l’utente
+sta utilizzando e…
+a.	Apra una pagina che mostri un form con:
+i.	 un edit che in cui ‘utente deve digiare il suo nome e che non può essere
+vuoto
+ii.	Un edit in cui l’utente deve digitare la sua età e che non può essere minore
+di 10 e maggiore di 100
+iii.	Un pulsante di convalida del form che controlli che la stessa sia stata
+compliata correttamente
+b.	Apra una pagina che mostri una combobox (SELECT) con almeno tre opzioni se
+l’utente non sta usando Internet Esplorer. A seconda dell’opzione che si
+seleziona, si deve aprire un relativo sito internet (già esistente) -->
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INFORMATICA_4A_15</title>
+    <script src="script.js" charset="utf-8"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body onload="browserCheck()">
+    <h1>INFORMATICA_4A_15</h1>
+    <form name="form" onsubmit = "formvalidation(this)">
+      Nome: <input name="question">
+      Età: <input type="number" name="question"> <br> <br>
+      <input id="insert" onclick="return IsEmpty();" type="submit" value="Convalida"
+      onclick = "valueValidation(this, 10, 100, 'Età non compresa tra 10 e 100', integer)">
+    </form>
+  </body>
+</html>

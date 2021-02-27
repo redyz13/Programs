@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auto>
+	<nome>RS6</nome>
+	<marca>Audi</marca>
+	<cilindrata>3966</cilindrata>
+	<tipoMotore>a scoppio</tipoMotore>
+	<alimentazione>benzina</alimentazione>
+	<cavalli>600</cavalli>
+	<consumo>12,5 l / 100km</consumo>
+	<dimensioni>
+		<altezza>1.460 mm</altezza>
+		<lunghezza>4.995 mm</lunghezza>
+		<larghezza>1.951 mm</larghezza>
+	</dimensioni>
+</auto>

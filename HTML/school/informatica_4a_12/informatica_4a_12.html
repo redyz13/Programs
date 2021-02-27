@@ -1,0 +1,30 @@
+<!-- Realizzare una pagina web che risponda alle seguenti specifiche:
+1)	La pagina deve mostrare inizialmente tre paragrafi, con i testi iniziali
+rispettivamente “Paragrafo 1”, “Paragrafo 2” e “Paragrafo 3” e tre pulsanti con
+le seguenti caption: “Compila par. 1”, “Compila par. 2” e “Compila par. 3”
+2)	Quando si clicca sul pulsante 1, bisogna cambiare il testo del paragrafo 1
+in “Questo è il nuovo testo del paragrafo 1”, e così via per  i pulsanti 2 e 3.
+Attenzione: sviluppare questo punto chiamando sempre la stessa funzione
+Javascript e posizionare la funzione in un file esterno alla pagina -->
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INFORMATICA_4A_12</title>
+    <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>INFORMATICA_4A_12</h1>
+    <p id="p1">Paragrafo 1</p>
+    <p id="p2">Paragrafo 2</p>
+    <p id="p3">Paragrafo 3</p>
+    <form name="form" id="form" onsubmit="return false">
+      <button id="1" onclick="changeText(this)" value="Submit"
+      style="height: 50px; width: 200px">Compila paragrafo 1</button>
+      <button id="2" onclick="changeText(this)" value="Submit"
+      style="height: 50px; width: 200px">Compila paragrafo 2</button>
+      <button id="3" onclick="changeText(this)" value="Submit"
+      style="height: 50px; width: 200px">Compila paragrafo 3</button>
+    </form>
+  </body>
+</html>
