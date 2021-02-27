@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class ServerMain {
   private Scanner inp = new Scanner(System.in);
   private ServerUDP serverSocket;
+  private MultiCastSender ms;
   private int porta = 7000;
   private boolean attivo = true;
   private NumberGuess numberGuess;
@@ -35,6 +36,8 @@ public class ServerMain {
       System.err.println("\nErrore server");
     }
 
+    ms = new MultiCastSender();
+
     System.out.println("\n[Server Pronto]");
 
     numberGuess = new NumberGuess();
@@ -62,11 +65,11 @@ public class ServerMain {
       }
 
       if(x == numberGuess.getNumeroEstrazione()) {
-        serverSocket.invia("y");
+        ms.invia("y");
         System.out.println("[Numero indovinato dal client, connessione terminata]");
         chiudiConnessione();
       }
-      else {
+      else if(x != numberGuess.getNumeroEstrazione()) {
         serverSocket.invia("n");
         if(x != -1)
           System.out.println("[Numero sbagliato]");
