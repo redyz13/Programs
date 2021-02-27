@@ -37,38 +37,48 @@ public class ServerMain {
 
     System.out.println("\n[Server Pronto]");
 
-    ricevi(); // Ricevo pacchetto di test da cui ricavo ip e porta del client
-    serverSocket.invia(""); // Invio pacchetto di test
-
     numberGuess = new NumberGuess();
     int numeroEstrazione = numberGuess.getRandomNumber();
-    numberGuess.setNumeroEstrazione(numeroEstrazione);
 
     System.out.println("[Numero generato = " + numberGuess.getNumeroEstrazione() + "]");
 
+    ricevi(); // Ricevo pacchetto di test da cui ricavo ip e porta del client
+    serverSocket.invia(""); // Invio pacchetto di test
+
+    int x;
+
     while(attivo) {
       String n = ricevi();
-      System.out.println("\n[Ricevuto : " + n + "]");
 
-      if(n.equals("q")) {
-        attivo = false;
-        break;
+      if(!n.equals(""))
+        System.out.println("\n[Ricevuto : " + n + "]");
+
+      checkAndClose(n, "q");
+
+      try {
+        x = Integer.parseInt(n);
+      }catch (NumberFormatException ne) {
+        x = -1;
       }
-
-      int x = Integer.parseInt(n);
 
       if(x == numberGuess.getNumeroEstrazione()) {
         serverSocket.invia("y");
         System.out.println("[Numero indovinato dal client, connessione terminata]");
-        attivo = false;
+        chiudiConnessione();
       }
       else {
         serverSocket.invia("n");
-        System.out.println("[Numero sbagliato]");
+        if(x != -1)
+          System.out.println("[Numero sbagliato]");
       }
     }
+  }
 
-    chiudiConnessione();
+  private void checkAndClose(String x, String closeString) throws IOException {
+    if(x.equals(closeString)) {
+      System.out.println("\n[Connessione Terminata]");
+      chiudiConnessione();
+    }
   }
 
   private void chiudiConnessione() throws IOException {

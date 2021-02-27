@@ -7,14 +7,12 @@ public class NumberGuess {
   private int numeroEstrazione;
 
   public int getRandomNumber() {
-    return random.nextInt(range);
+    numeroEstrazione = random.nextInt(range);
+
+    return numeroEstrazione;
   }
 
   public int getNumeroEstrazione() {
     return numeroEstrazione;
-  }
-
-  public void setNumeroEstrazione(int numeroEstrazione) {
-    this.numeroEstrazione = numeroEstrazione;
   }
 }

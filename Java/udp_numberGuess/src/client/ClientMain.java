@@ -42,12 +42,13 @@ public class ClientMain {
     System.out.print("""
           \n- Funzionamento del server -
           \tSe non si inviano o ricevono dati entro 30 secondi la connessione si annulla
-          \tIl seguente server permette di effettuare un echo dei dati inviati
+          \tIl seguente server genera un numero compreso tra 0 e 100
+          \tche è possibile indovinare per vincere
           \tScrivere q per annullare immediatamente la connessione
           """);
 
     while(attivo) {
-      System.out.print("\nInserisci un numero compreso tra 0 e 100: ");
+      System.out.print("\nInserisci un numero: ");
       String s = inp.readLine();
 
       clientSocket.invia(s);
@@ -55,13 +56,15 @@ public class ClientMain {
       checkAndClose(s, "q");
 
       String risposta = ricevi();
+      char r = risposta.charAt(0);
 
-      System.out.println("[Risposta server : " + risposta + "]");
-
-      if(risposta.equals("y"))
-        System.out.println("kitemuort");
-
-      checkAndClose(risposta, "y");
+      if(r == 'y') {
+        System.out.println("[Numero Indovinato!]");
+        System.out.println("\n[Connessione Terminata]");
+        chiudiConnessione();
+      }
+      else
+        System.out.println("[Riprova!]");
     }
   }
 
@@ -80,7 +83,6 @@ public class ClientMain {
 
   private String ricevi() throws IOException {
     String s = clientSocket.ricevi();
-
     if(s.equals("q")) {
       System.out.println("\n[Connessione Terminata]");
       chiudiConnessione();
