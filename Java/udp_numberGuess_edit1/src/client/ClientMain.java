@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 public class ClientMain {
   private BufferedReader inp = new BufferedReader(new InputStreamReader(System.in));
   private ClientUDP clientSocket;
-  private MultiCastReciever mr;
   private InetAddress ip;
   private int porta = 7000;
   private boolean attivo = true;
@@ -34,7 +33,6 @@ public class ClientMain {
   public void comunica() throws IOException {
     ip = InetAddress.getByName("localhost");
     clientSocket = new ClientUDP(ip, porta);
-    mr = new MultiCastReciever(porta);
 
     clientSocket.invia(""); // Invio pacchetto di test per dare ip e porta al server
     ricevi(); // Ricevo pacchetto di test
@@ -57,7 +55,7 @@ public class ClientMain {
 
       checkAndClose(s, "q");
 
-      String risposta = mr.ricevi();
+      String risposta = ricevi();
       char r = risposta.charAt(0);
 
       if(r == 'y') {
