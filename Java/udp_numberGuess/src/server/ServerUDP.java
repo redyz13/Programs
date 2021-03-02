@@ -10,6 +10,7 @@ public class ServerUDP {
   private byte[] bufferOUT;
   private DatagramSocket serverSocket;
   private DatagramPacket receivePacket;
+  private DatagramPacket sendPacket;
   private int porta;
   private int timeout = 10*3000;
 
@@ -48,8 +49,6 @@ public class ServerUDP {
   }
 
   public void invia(String daSpedire) throws IOException {
-    DatagramPacket sendPacket;
-
     InetAddress IPClient = receivePacket.getAddress();
     int portaClient = receivePacket.getPort();
 

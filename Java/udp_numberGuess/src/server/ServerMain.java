@@ -14,7 +14,7 @@ public class ServerMain {
     sm.dashboard();
   }
 
-  public void dashboard() throws IOException {
+  private void dashboard() throws IOException {
     int s;
     do {
       System.out.println("\nSelezionare un'opzione\n1. Comunica\n0. Esci");
@@ -27,7 +27,7 @@ public class ServerMain {
     } while (true);
   }
 
-  public void comunica() throws IOException {
+  private void comunica() throws IOException {
     try {
       serverSocket = new ServerUDP(porta);
     }

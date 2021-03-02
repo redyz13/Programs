@@ -23,7 +23,6 @@ public class ClientUDP {
       this.porta = porta;
       this.clientSocket = new DatagramSocket();
       this.receivePacket = new DatagramPacket(bufferIN, bufferIN.length);
-      this.sendPacket = new DatagramPacket(bufferOUT, bufferOUT.length);
     }catch (SocketException u) {
       System.out.println(u.toString());
     }
@@ -31,10 +30,9 @@ public class ClientUDP {
 
   public String ricevi() throws IOException {
     clientSocket.setSoTimeout(timeout); // Timer ricezione
-    DatagramPacket recievePacket = new DatagramPacket(bufferIN, bufferIN.length);
 
     try {
-      clientSocket.receive(recievePacket);
+      clientSocket.receive(receivePacket);
     }catch (java.io.InterruptedIOException t) {
       System.out.println("\n[Nessuna risposta dal server, connessione chiusa]");
       //System.exit(0);
@@ -53,9 +51,11 @@ public class ClientUDP {
     return ricevuto;
   }
 
-  public void invia(String s) throws IOException {
-    bufferOUT = s.getBytes();
+  public void invia(String daSpedire) throws IOException {
+    bufferOUT = daSpedire.getBytes();
+
     sendPacket = new DatagramPacket(bufferOUT, bufferOUT.length, ip, porta);
+
     clientSocket.send(sendPacket);
   }
 
