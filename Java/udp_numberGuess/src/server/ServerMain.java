@@ -38,7 +38,6 @@ public class ServerMain {
     System.out.println("\n[Server Pronto]");
 
     numberGuess = new NumberGuess();
-    int numeroEstrazione = numberGuess.getRandomNumber();
 
     System.out.println("[Numero generato = " + numberGuess.getNumeroEstrazione() + "]");
 
