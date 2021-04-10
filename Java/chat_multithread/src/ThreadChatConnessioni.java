@@ -35,11 +35,10 @@ public class ThreadChatConnessioni implements Runnable {
                 // Rimango in attesa dei messaggi inviati al client
                 while((m = input.readLine()) == null) { }
 
-                // Invoco il metodo del gestoreChat per ripetere a tutti il messaggio ricevuto
-                gestoreChat.spedisciMessaggio(m);
+                // Inserimento del messaggio nella lista dei messaggi
 
             } catch (Exception e) {
-                output.println("Errore nella spedizione del messaggio a tutti");
+                output.println("Errore");
             }
         }
     }
