@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/prova.iml" filepath="$PROJECT_DIR$/prova.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prova_jbdc.iml" filepath="$PROJECT_DIR$/prova_jbdc.iml" />
     </modules>
   </component>
 </project>
