@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -54,21 +55,42 @@ public class Database {
         
     }
     
-    public Utente selectUtente(String username, String password) throws SQLException {
+    public int selectUtente(String username, String password, PrintWriter out) throws SQLException {
     	Utente utente = null;
-		connect();
-    	String sql = "SELECT * FROM utenti HAVING username = \" "+ username + " \" and password = \" " + password + "\"";
-
-    	Statement statement = jdbcConnection.createStatement();
-    	ResultSet resultSet = statement.executeQuery(sql);
-    	while(resultSet.next()) {
-    		utente = new Utente(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("password"), resultSet.getString("nome"), resultSet.getString("cognome"));
-    	}
-    	 resultSet.close();
-         statement.close();
-         
-    		return utente;
+    	String dbpsw;
     	
+		try {
+			connect();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	String sql = "SELECT password FROM utenti WHERE username = \""+ username +"\"";
+
+    	Statement statement = null;
+		try {
+			statement = jdbcConnection.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			out.println("statement = jdbcConnection.createStatement()");
+		}
+    	ResultSet resultSet = null;
+		try {
+			resultSet = statement.executeQuery(sql);
+		} catch (SQLException e) {
+			out.println("statement.executeQuery(sql)");
+		}
+		
+		if(resultSet.next()) {
+			dbpsw = resultSet.getString("password");
+			if(dbpsw.equals(password)) {
+				return 0;
+			} else {
+				return -2;
+			}
+		} else {
+			return -1;
+		}
 
     }
     

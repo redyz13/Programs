@@ -14,15 +14,24 @@ public class Accedi extends HttpServlet {
 		
 		PrintWriter pw=resp.getWriter();
 		resp.setContentType("text/html");
-		Database database = new Database("jdbc:mysql://localhost:3306/registrazione", "root", "");
-		try {
-			Utente utente = database.selectUtente(req.getParameter("username"), req.getParameter("psw"));
-			System.out.println(utente.toString());
-		} catch (SQLException e) {
-			pw.println("Operazione fallita");
-			pw.print(e.getMessage());
-		}
 		
+		Database database = new Database("jdbc:mysql://localhost:3306/registrazione", "root", "");
+		
+		int value = 0;
+		try {
+			value = database.selectUtente(req.getParameter("username"), req.getParameter("psw"), pw);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pw.print("<html> <head> </head> <body> ");
+		if(value == 0) {
+			pw.print("<p> Sei connesso </p>");
+		} else if (value == 1) {
+			pw.print("<p> Nome utente non registrato </p>");
+		} else {
+			pw.print("<p> Password non corretta </p>");
+		}
 	}
 	
 }
