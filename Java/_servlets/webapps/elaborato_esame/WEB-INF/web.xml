@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+  version="5.0"
+  metadata-complete="true">
+
+    <description>
+      Elaborato Esame
+    </description>
+    <display-name>Elaborato Esame</display-name>
+
+    <request-character-encoding>UTF-8</request-character-encoding>
+
+    <servlet>
+      <servlet-name>elaboratoEsame</servlet-name>
+      <servlet-class>ElaboratoEsame</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>elaboratoEsame</servlet-name>
+      <url-pattern>/elaboratoEsame</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>accessoTitolare</servlet-name>
+      <servlet-class>AccessoTitolare</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>accessoTitolare</servlet-name>
+      <url-pattern>/accessoTitolare</url-pattern>
+    </servlet-mapping>
+	
+	  <servlet>
+      <servlet-name>registrazioneTitolare</servlet-name>
+      <servlet-class>RegistrazioneTitolare</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>registrazioneTitolare</servlet-name>
+      <url-pattern>/registrazioneTitolare</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>accessoEsercente</servlet-name>
+      <servlet-class>AccessoEsercente</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>accessoEsercente</servlet-name>
+      <url-pattern>/accessoEsercente</url-pattern>
+    </servlet-mapping>
+	
+	  <servlet>
+      <servlet-name>registrazioneEsercente</servlet-name>
+      <servlet-class>RegistrazioneEsercente</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>registrazioneEsercente</servlet-name>
+      <url-pattern>/registrazioneEsercente</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>effettuaPagamento</servlet-name>
+      <servlet-class>EffettuaPagamento</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>effettuaPagamento</servlet-name>
+      <url-pattern>/effettuaPagamento</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>confermaPagamento</servlet-name>
+      <servlet-class>ConfermaPagamento</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>confermaPagamento</servlet-name>
+      <url-pattern>/confermaPagamento</url-pattern>
+    </servlet-mapping>
+</web-app>
