@@ -20,7 +20,18 @@ public class EffettuaPagamento extends HttpServlet {
 		HttpSession sessione = req.getSession(false);
 		
 		String numeroCarta = req.getParameter("numeroCarta");
-		int importo = Integer.parseInt(req.getParameter("importo"));
+		
+		int importo = -1;
+		
+		try {
+			importo = Integer.parseInt(req.getParameter("importo"));
+		} catch(NumberFormatException n) {
+			pw.println("<script type=\"text/javascript\">");
+			pw.println("alert('Importo inserito non corretto!');");
+			pw.println("location='pages_jsp/paginaEsercenti.jsp';");
+			pw.println("</script>");
+		}
+		
 		
 		int saldo = -1;
 		
