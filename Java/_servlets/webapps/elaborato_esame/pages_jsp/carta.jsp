@@ -79,10 +79,10 @@
                             <div>Valida</div>
                             <div>fino al</div>
                         </div>
-                        <%  rs = statement.executeQuery("SELECT dataScadenza FROM carta c INNER JOIN titolare t ON c.codiceTitolare = t.codiceTitolare WHERE t.username = \""+ username +"\""); 
+                        <%  rs = statement.executeQuery("SELECT month(dataScadenza), year(dataScadenza) FROM carta c INNER JOIN titolare t ON c.codiceTitolare = t.codiceTitolare WHERE t.username = \""+ username +"\""); 
                             while(rs.next()) {
                         %>
-                        <% out.println("<b><div class=\"ps-3\">"+rs.getDate(1)+"</div></b>");%>
+                        <% out.println("<div class=\"ps-3\"> <span class=\"month\">"+rs.getInt(1)+"</span> / <span class=\"year\">"+rs.getString(2)+"</span> </div>"); %>
                         <% } %>
                         <% rs.close(); %>
                         </div>
