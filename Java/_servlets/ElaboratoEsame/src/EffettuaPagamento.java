@@ -24,22 +24,38 @@ public class EffettuaPagamento extends HttpServlet {
 		
 		int saldo = -1;
 		
-		try {
-			saldo = database.selectSaldo(numeroCarta, pw);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if(saldo > 0 && saldo >= importo) {
-			sessione.setAttribute("importo", Integer.toString(importo));
-			resp.sendRedirect("pages/confermaPagamento.html");
+		if(importo > 0) {
+			try {
+				saldo = database.selectSaldo(numeroCarta, pw);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				saldo = database.selectSaldo(numeroCarta, pw);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if(saldo > 0 && saldo >= importo) {
+				sessione.setAttribute("importo", Integer.toString(importo));
+				resp.sendRedirect("pages/confermaPagamento.html");
+			}
+			else {
+				pw.println("<script type=\"text/javascript\">");
+				pw.println("alert('Saldo insufficiente o numero di carta non trovato!');");
+				pw.println("location='pages_jsp/paginaEsercenti.jsp';");
+				pw.println("</script>");
+			}
 		}
 		else {
 			pw.println("<script type=\"text/javascript\">");
-			pw.println("alert('Saldo insufficiente o numero di carta non trovato!');");
+			pw.println("alert('Importo inserito non corretto!');");
 			pw.println("location='pages_jsp/paginaEsercenti.jsp';");
 			pw.println("</script>");
 		}
+	
 	}
 }
