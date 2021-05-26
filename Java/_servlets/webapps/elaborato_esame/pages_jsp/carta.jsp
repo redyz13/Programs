@@ -124,7 +124,7 @@
                 </thead>
                 <tbody>
                 <%
-                    rs = statement.executeQuery("SELECT codiceMovimento, importoTransazione, dataTransazione, descrizione FROM movimenti m INNER JOIN carta c ON c.codiceCarta = m.codiceCarta INNER JOIN titolare t ON c.codiceTitolare = t.codiceTitolare WHERE t.username = \""+ username +"\" ORDER BY dataTransazione");
+                    rs = statement.executeQuery("SELECT codiceMovimento, importoTransazione, dataTransazione, descrizione FROM movimenti m INNER JOIN carta c ON c.codiceCarta = m.codiceCarta INNER JOIN titolare t ON c.codiceTitolare = t.codiceTitolare WHERE t.username = \""+ username +"\" ORDER BY dataTransazione DESC");
                     while(rs.next()) {
                 %>
                     <tr>
