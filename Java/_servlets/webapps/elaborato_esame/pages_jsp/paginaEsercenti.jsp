@@ -46,8 +46,8 @@
                         <form action="../effettuaPagamento" method="post">
                             <center>
                                 <div class = "login" style = >
-                                    <label>Numero Carta: </label> <input name="numeroCarta" type = "text"> <br><br>
-                                    <label>Importo: </label> <input name="importo" type = "number"> <br><br>
+                                    <label>Numero Carta: </label> <br> <input name="numeroCarta" type = "text"> <br><br>
+                                    <label>Importo: </label> <br> <input name="importo" type = "number"> <br><br>
                                     <input type="submit" value = "Autorizza">
                                 </div>     
                             </center>

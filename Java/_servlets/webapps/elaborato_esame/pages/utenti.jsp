@@ -43,8 +43,8 @@
                         <form action="../accessoTitolare" method="post">
                             <center>
                                 <div class = "login" style = >
-                                    <label>Username: </label> <input name="username" type = "text"> <br><br>
-                                    <label>Password: </label> <input name="pword" type = "password"> <br><br>
+                                    <label>Username: </label> <br> <input name="username" type = "text" required="required"> <br><br>
+                                    <label>Password: </label> <br> <input name="pword" type = "password" required="required"> <br><br>
                                     <input type="submit" value = "Accedi">
                                 </div>     
                             </center>
@@ -62,12 +62,12 @@
                         <form action="../registrazioneTitolare" method="post">
                             <center>
                                 <div class = "login" style = >
-                                    <label>Nome: </label> <input name="nome" type = "text"> <br><br>
-                                    <label>Cognome: </label> <input name="cognome" type = "text"> <br><br>
-                                    <label>Username: </label> <input name="username" type = "text"> <br><br>
-                                    <label>Password: </label> <input name="pword" type = "password"> <br><br>
-                                    <label>Email: </label> <input name="email" type = "text"> <br><br>
-                                    <label>Indirizzo: </label> <input name="indirizzo" type = "text"> <br><br>
+                                    <label>Nome: </label> <br> <input name="nome" type = "text" required="required"> <br><br>
+                                    <label>Cognome: </label> <br> <input name="cognome" type = "text" required="required"> <br><br>
+                                    <label>Username: </label> <br> <input name="username" type = "text" required="required"> <br><br>
+                                    <label>Password: </label> <br> <input name="pword" type = "password" required="required"> <br><br>
+                                    <label>Email: </label> <br> <input name="email" type = "text" required="required"> <br><br>
+                                    <label>Indirizzo: </label> <br> <input name="indirizzo" type = "text" required="required"> <br><br>
                                     <input type="submit" value = "Registrati">
                                 </div>     
                             </center>
